@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Royal Rolls | रॉयल रोल्स — Taj Ganj, Agra</title>
+<meta name="description" content="Royal Rolls, Taj Ganj Agra — Kathi Rolls, Burgers, Pizza, Chinese, Shakes aur bahut kuch. Order karein WhatsApp par.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Mukta:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --maroon:#6E1423;
+    --maroon-deep:#3F0A14;
+    --maroon-light:#8C2233;
+    --gold:#C9A227;
+    --gold-light:#EAD07E;
+    --cream:#F7EEDD;
+    --paper:#FFFBF2;
+    --ink:#211611;
+    --chili:#D94F30;
+    --whatsapp:#25D366;
+    --whatsapp-dark:#1DA851;
+    --shadow-soft: 0 10px 30px rgba(63,10,20,0.18);
+    --shadow-hard: 0 2px 0 rgba(0,0,0,0.35), 0 14px 24px rgba(0,0,0,0.25);
+    --radius: 18px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Mukta',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Baloo 2',sans-serif;
+    margin:0;
+    letter-spacing:0.3px;
+  }
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 24px;}
+  ::selection{background:var(--gold); color:var(--maroon-deep);}
+
+  /* ---------- texture backdrop ---------- */
+  .grain{
+    position:fixed; inset:0; pointer-events:none; z-index:2; opacity:0.05; mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ---------- nav ---------- */
+  header{
+    position:sticky; top:0; z-index:100;
+    background:linear-gradient(180deg, var(--maroon-deep), var(--maroon));
+    box-shadow:0 4px 18px rgba(0,0,0,0.25);
+  }
+  .navbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:10px 24px; max-width:1180px; margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand svg{width:52px; height:52px; flex-shrink:0;}
+  .brand-text{display:flex; flex-direction:column; line-height:1.05;}
+  .brand-text .en{color:var(--gold-light); font-size:1.15rem; font-weight:700; font-family:'Baloo 2';}
+  .brand-text .hi{color:var(--cream); font-size:0.72rem; opacity:0.85;}
+  nav.links{display:flex; gap:26px; align-items:center;}
+  nav.links a{
+    color:var(--cream); font-weight:600; font-size:0.95rem; position:relative; padding:6px 0;
+  }
+  nav.links a::after{
+    content:''; position:absolute; left:0; bottom:0; height:2px; width:0; background:var(--gold);
+    transition:width .25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    display:flex; align-items:center; gap:8px;
+    background:var(--whatsapp); color:#fff !important; padding:9px 16px; border-radius:30px;
+    font-weight:700; font-size:0.88rem; box-shadow:0 4px 0 var(--whatsapp-dark);
+    transition:transform .15s ease;
+  }
+  .nav-cta:hover{transform:translateY(-2px);}
+  .nav-cta svg{width:16px; height:16px;}
+  .burger{display:none; flex-direction:column; gap:5px; cursor:pointer; z-index:110;}
+  .burger span{width:26px; height:3px; background:var(--gold-light); border-radius:2px;}
+  .mobile-panel{
+    display:none; flex-direction:column; gap:2px; background:var(--maroon-deep);
+    padding:10px 24px 18px;
+  }
+  .mobile-panel a{color:var(--cream); padding:12px 0; border-bottom:1px solid rgba(255,255,255,0.08); font-weight:600;}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative; min-height:92vh; display:flex; align-items:center;
+    background:
+      linear-gradient(180deg, rgba(63,10,20,0.78) 0%, rgba(63,10,20,0.55) 45%, rgba(63,10,20,0.92) 100%),
+      url('images/cart.webp') center 30%/cover no-repeat;
+    padding-top:60px;
+  }
+  .hero .wrap{position:relative; z-index:3; width:100%; padding-top:30px; padding-bottom:60px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    color:var(--gold-light); font-family:'IBM Plex Mono'; font-size:0.78rem; letter-spacing:2px;
+    text-transform:uppercase; margin-bottom:18px;
+  }
+  .eyebrow::before{content:''; width:26px; height:1px; background:var(--gold-light);}
+  .hero h1{
+    color:var(--paper); font-size:clamp(3rem, 9vw, 6.2rem); font-weight:800; line-height:0.92;
+    text-shadow:0 6px 30px rgba(0,0,0,0.4);
+  }
+  .hero h1 .hi{
+    display:block; color:var(--gold-light); font-size:0.42em; font-weight:700; margin-top:6px;
+  }
+  .hero p.tag{
+    color:var(--cream); font-size:1.2rem; max-width:520px; margin-top:20px; opacity:0.92;
+    font-weight:400;
+  }
+  .hero-ctas{display:flex; gap:16px; margin-top:34px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:10px; padding:15px 28px; border-radius:14px;
+    font-weight:700; font-size:1rem; cursor:pointer; border:none; font-family:'Mukta';
+    transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn:active{transform:translateY(3px); box-shadow:none !important;}
+  .btn-primary{background:var(--whatsapp); color:#fff; box-shadow:var(--shadow-hard), 0 4px 0 var(--whatsapp-dark);}
+  .btn-primary:hover{transform:translateY(-3px);}
+  .btn-outline{
+    background:transparent; color:var(--paper); border:2px solid rgba(247,238,221,0.55);
+  }
+  .btn-outline:hover{background:rgba(247,238,221,0.12); transform:translateY(-3px);}
+  .btn svg{width:19px; height:19px;}
+
+  .rating-chip{
+    display:inline-flex; align-items:center; gap:10px; margin-top:38px;
+    background:rgba(255,251,242,0.1); border:1px solid rgba(234,208,126,0.35);
+    padding:10px 18px; border-radius:40px; backdrop-filter:blur(6px);
+  }
+  .rating-chip .stars{color:var(--gold-light); font-size:1rem; letter-spacing:2px;}
+  .rating-chip span.small{color:var(--cream); font-size:0.85rem; opacity:0.85;}
+
+  /* floating roll */
+  .float-roll{
+    position:absolute; right:5%; top:20%; width:min(34vw,340px); height:auto;
+    filter:drop-shadow(0 30px 40px rgba(0,0,0,0.45));
+    animation:bob 5s ease-in-out infinite;
+    z-index:2;
+  }
+  @keyframes bob{
+    0%,100%{transform:translateY(0) rotate(-4deg);}
+    50%{transform:translateY(-22px) rotate(3deg);}
+  }
+
+  /* ---------- ticker ---------- */
+  .ticker{
+    background:var(--ink); overflow:hidden; padding:13px 0; border-top:3px solid var(--gold);
+    border-bottom:3px solid var(--gold);
+  }
+  .ticker-track{
+    display:flex; width:max-content; gap:0; animation:scroll 32s linear infinite;
+  }
+  .ticker-track span{
+    color:var(--gold-light); font-family:'IBM Plex Mono'; font-size:0.85rem; letter-spacing:1.5px;
+    padding:0 28px; white-space:nowrap; display:flex; align-items:center; gap:28px;
+  }
+  .ticker-track span::after{content:'✦'; color:var(--chili); font-size:0.7rem;}
+  @keyframes scroll{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  /* ---------- section shell ---------- */
+  section{padding:96px 0;}
+  .kicker{
+    font-family:'IBM Plex Mono'; font-size:0.78rem; letter-spacing:3px; text-transform:uppercase;
+    color:var(--chili); font-weight:600; display:flex; align-items:center; gap:10px; margin-bottom:14px;
+  }
+  .kicker::before{content:''; width:22px; height:2px; background:var(--chili);}
+  .sec-title{
+    font-size:clamp(2.1rem,4vw,3rem); color:var(--maroon-deep); font-weight:800; line-height:1.05;
+  }
+  .sec-title .hi{display:block; color:var(--maroon-light); font-size:0.5em; font-weight:600; margin-top:6px;}
+
+  /* ---------- story ---------- */
+  .story{
+    background:var(--paper);
+    background-image: radial-gradient(circle at 90% 10%, rgba(201,162,39,0.08), transparent 40%);
+  }
+  .story-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:64px; align-items:center;}
+  .story-grid p{font-size:1.08rem; line-height:1.85; color:#3a2a24; margin:20px 0;}
+  .story-photo{
+    position:relative; border-radius:22px; overflow:hidden; box-shadow:var(--shadow-soft);
+    transform:rotate(-2deg);
+  }
+  .story-photo img{width:100%; height:100%; object-fit:cover; aspect-ratio:4/5;}
+  .story-photo::after{
+    content:'रॉयल रोल्स'; position:absolute; bottom:16px; left:16px; background:var(--maroon-deep);
+    color:var(--gold-light); padding:8px 16px; border-radius:10px; font-family:'Baloo 2'; font-weight:600;
+    font-size:0.95rem; box-shadow:0 6px 0 rgba(0,0,0,0.25);
+  }
+  .stat-row{display:flex; gap:36px; margin-top:34px; flex-wrap:wrap;}
+  .stat b{display:block; font-family:'Baloo 2'; font-size:2rem; color:var(--maroon); font-weight:800;}
+  .stat span{font-size:0.82rem; color:#6b5a52; font-family:'IBM Plex Mono';}
+
+  /* ---------- menu ---------- */
+  .menu-sec{
+    background:var(--maroon-deep);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(201,162,39,0.15), transparent 35%),
+      radial-gradient(circle at 85% 80%, rgba(201,162,39,0.1), transparent 40%);
+    color:var(--cream); position:relative;
+  }
+  .menu-sec .kicker{color:var(--gold-light);}
+  .menu-sec .kicker::before{background:var(--gold-light);}
+  .menu-sec .sec-title{color:var(--paper);}
+  .menu-sec .sec-title .hi{color:var(--gold-light);}
+  .menu-sec > .wrap > p{color:rgba(247,238,221,0.75); max-width:560px; font-size:1.05rem; margin-top:16px;}
+
+  .tabs{
+    display:flex; gap:10px; flex-wrap:wrap; margin:44px 0 36px; perspective:800px;
+  }
+  .tab-btn{
+    background:rgba(255,251,242,0.06); border:1px solid rgba(234,208,126,0.28);
+    color:var(--cream); padding:11px 20px; border-radius:12px; font-weight:600; font-size:0.92rem;
+    cursor:pointer; transition:all .2s ease; font-family:'Mukta';
+  }
+  .tab-btn:hover{background:rgba(234,208,126,0.14); transform:translateY(-2px);}
+  .tab-btn.active{
+    background:var(--gold); color:var(--maroon-deep); border-color:var(--gold);
+    box-shadow:0 5px 0 #9a7c17;
+  }
+
+  .menu-grid{
+    display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px;
+    perspective:1000px;
+  }
+  .menu-panel{display:none;}
+  .menu-panel.active{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:18px;
+    animation:fadein .4s ease;}
+  @keyframes fadein{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
+
+  .item-card{
+    background:linear-gradient(155deg, rgba(255,251,242,0.07), rgba(255,251,242,0.02));
+    border:1px solid rgba(234,208,126,0.18); border-radius:16px; padding:20px 20px 18px;
+    transform-style:preserve-3d; transition:transform .12s ease, box-shadow .12s ease, border-color .2s ease;
+    will-change:transform;
+  }
+  .item-card:hover{border-color:rgba(234,208,126,0.55); box-shadow:0 20px 40px rgba(0,0,0,0.35);}
+  .item-top{display:flex; justify-content:space-between; align-items:flex-start; gap:10px;}
+  .item-name{font-family:'Baloo 2'; font-weight:600; font-size:1.05rem; color:var(--paper); line-height:1.25;}
+  .item-price{
+    font-family:'IBM Plex Mono'; color:var(--gold-light); font-weight:600; font-size:0.98rem;
+    white-space:nowrap; background:rgba(201,162,39,0.15); padding:4px 10px; border-radius:8px;
+  }
+  .item-note{font-size:0.8rem; color:rgba(247,238,221,0.55); margin-top:8px;}
+  .badge-new{
+    display:inline-block; background:var(--chili); color:#fff; font-size:0.62rem; font-weight:700;
+    padding:2px 7px; border-radius:6px; margin-left:8px; letter-spacing:0.5px; transform:translateY(-2px);
+  }
+  .signature-card{
+    grid-column:1 / -1; background:linear-gradient(120deg, rgba(201,162,39,0.16), rgba(217,79,48,0.1));
+    border:1px dashed rgba(234,208,126,0.5); border-radius:18px; padding:26px; display:flex;
+    align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
+  }
+  .signature-card h3{font-family:'Baloo 2'; color:var(--paper); font-size:1.3rem;}
+  .signature-card p{color:rgba(247,238,221,0.8); margin:8px 0 0; max-width:480px; font-size:0.95rem;}
+
+  /* ---------- gallery ---------- */
+  .gallery{background:var(--cream);}
+  .gal-grid{
+    display:grid; grid-template-columns:1.3fr 1fr; gap:20px; margin-top:44px;
+  }
+  .gal-item{border-radius:20px; overflow:hidden; box-shadow:var(--shadow-soft); position:relative;}
+  .gal-item img{width:100%; height:100%; object-fit:cover; transition:transform .5s ease;}
+  .gal-item:hover img{transform:scale(1.06);}
+  .gal-item .cap{
+    position:absolute; left:0; right:0; bottom:0; padding:18px 20px;
+    background:linear-gradient(0deg, rgba(63,10,20,0.85), transparent);
+    color:var(--cream); font-family:'Baloo 2'; font-weight:600; font-size:1rem;
+  }
+  .gal-tall{grid-row:span 2; min-height:100%;}
+  .gal-right{display:flex; flex-direction:column; gap:20px;}
+
+  /* ---------- reviews ---------- */
+  .reviews{
+    background:var(--paper);
+    background-image:radial-gradient(circle at 10% 90%, rgba(217,79,48,0.06), transparent 40%);
+  }
+  .rev-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:44px;}
+  .rev-card{
+    background:#fff; border-radius:18px; padding:28px 24px; box-shadow:0 8px 24px rgba(63,10,20,0.08);
+    border:1px solid rgba(110,20,35,0.07); position:relative;
+  }
+  .rev-card .stars{color:var(--gold); letter-spacing:2px; font-size:0.95rem;}
+  .rev-card p{margin:14px 0 20px; font-size:0.98rem; line-height:1.65; color:#453530;}
+  .rev-who{display:flex; align-items:center; gap:12px;}
+  .avatar{
+    width:42px; height:42px; border-radius:50%; background:var(--maroon); color:var(--gold-light);
+    display:flex; align-items:center; justify-content:center; font-family:'Baloo 2'; font-weight:700;
+    flex-shrink:0;
+  }
+  .rev-who b{display:block; font-size:0.92rem; color:var(--maroon-deep);}
+  .rev-who span{font-size:0.78rem; color:#8a7a72;}
+  .quote-mark{position:absolute; top:18px; right:22px; font-family:'Baloo 2'; font-size:2.6rem; color:rgba(201,162,39,0.25);}
+
+  /* ---------- location ---------- */
+  .location{background:var(--maroon-deep); color:var(--cream); position:relative; overflow:hidden;}
+  .location::before{
+    content:''; position:absolute; inset:0; opacity:0.06;
+    background-image:repeating-linear-gradient(45deg, var(--gold) 0 2px, transparent 2px 26px);
+  }
+  .loc-grid{display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:stretch; position:relative;}
+  .loc-info h2{color:var(--paper);}
+  .loc-list{margin-top:28px; display:flex; flex-direction:column; gap:20px;}
+  .loc-row{display:flex; gap:16px; align-items:flex-start;}
+  .loc-row .ic{
+    width:42px; height:42px; border-radius:12px; background:rgba(234,208,126,0.14);
+    display:flex; align-items:center; justify-content:center; flex-shrink:0;
+    border:1px solid rgba(234,208,126,0.3);
+  }
+  .loc-row .ic svg{width:20px; height:20px; color:var(--gold-light);}
+  .loc-row b{display:block; font-size:0.98rem; color:var(--paper); margin-bottom:3px;}
+  .loc-row span{font-size:0.9rem; color:rgba(247,238,221,0.72); line-height:1.5;}
+  .loc-ctas{display:flex; gap:14px; margin-top:32px; flex-wrap:wrap;}
+  .map-frame{
+    border-radius:20px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,0.4); min-height:380px;
+    border:3px solid rgba(234,208,126,0.25);
+  }
+  .map-frame iframe{width:100%; height:100%; min-height:380px; border:0; filter:saturate(0.9) contrast(1.05);}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink); color:rgba(247,238,221,0.6); padding:50px 0 26px;}
+  .foot-top{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:24px; padding-bottom:30px; border-bottom:1px solid rgba(255,255,255,0.08);}
+  .foot-brand{display:flex; align-items:center; gap:12px;}
+  .foot-brand svg{width:44px; height:44px;}
+  .foot-brand b{color:var(--gold-light); font-family:'Baloo 2'; font-size:1.1rem;}
+  .foot-links{display:flex; gap:24px; flex-wrap:wrap;}
+  .foot-links a{font-size:0.88rem; color:rgba(247,238,221,0.65);}
+  .foot-links a:hover{color:var(--gold-light);}
+  .foot-bottom{display:flex; justify-content:space-between; padding-top:22px; font-size:0.78rem; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- floating whatsapp ---------- */
+  .float-wa{
+    position:fixed; bottom:24px; right:24px; z-index:200;
+    width:60px; height:60px; border-radius:50%; background:var(--whatsapp);
+    display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,0.35);
+    animation:pulse 2.4s ease-in-out infinite;
+  }
+  .float-wa svg{width:30px; height:30px; color:#fff;}
+  @keyframes pulse{
+    0%,100%{box-shadow:0 8px 24px rgba(0,0,0,0.35), 0 0 0 0 rgba(37,211,102,0.5);}
+    50%{box-shadow:0 8px 24px rgba(0,0,0,0.35), 0 0 0 14px rgba(37,211,102,0);}
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width:920px){
+    nav.links{display:none;}
+    .burger{display:flex;}
+    .story-grid, .loc-grid{grid-template-columns:1fr;}
+    .story-photo{order:-1; transform:rotate(0);}
+    .gal-grid{grid-template-columns:1fr;}
+    .gal-tall{min-height:260px;}
+    .rev-grid{grid-template-columns:1fr;}
+    .float-roll{display:none;}
+    .hero{min-height:auto; padding-bottom:20px;}
+    section{padding:64px 0;}
+    .map-frame, .map-frame iframe{min-height:280px;}
+  }
+  @media (max-width:600px){
+    .wrap{padding:0 18px;}
+    .hero-ctas{flex-direction:column; align-items:stretch;}
+    .btn{justify-content:center;}
+    .nav-cta{display:none;}
+    .signature-card{flex-direction:column; align-items:flex-start;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<!-- ================= LOGO (reused via template) ================= -->
+<template id="logo-tpl">
+  <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <radialGradient id="domeGrad" cx="35%" cy="30%" r="75%">
+        <stop offset="0%" stop-color="#8C2233"/>
+        <stop offset="65%" stop-color="#6E1423"/>
+        <stop offset="100%" stop-color="#3F0A14"/>
+      </radialGradient>
+      <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="#EAD07E"/>
+        <stop offset="50%" stop-color="#C9A227"/>
+        <stop offset="100%" stop-color="#9a7c17"/>
+      </linearGradient>
+      <path id="topArc" d="M 30 105 A 70 70 0 0 1 170 105"/>
+      <path id="botArc" d="M 42 148 A 62 62 0 0 0 158 148"/>
+    </defs>
+    <circle cx="100" cy="100" r="96" fill="url(#ringGrad)"/>
+    <circle cx="100" cy="100" r="84" fill="url(#domeGrad)"/>
+    <circle cx="100" cy="100" r="84" fill="none" stroke="#EAD07E" stroke-width="1.5" opacity="0.5"/>
+    <!-- crown -->
+    <g transform="translate(100,52)">
+      <path d="M-15 8 L-11 -6 L-4 2 L0 -10 L4 2 L11 -6 L15 8 Z" fill="#EAD07E"/>
+      <rect x="-15" y="8" width="30" height="4" rx="1.5" fill="#EAD07E"/>
+    </g>
+    <!-- rolled wrap icon -->
+    <g transform="translate(100,112)">
+      <ellipse cx="0" cy="0" rx="34" ry="17" fill="#3F0A14" opacity="0.35"/>
+      <rect x="-34" y="-13" width="68" height="26" rx="13" fill="#F7EEDD"/>
+      <path d="M-34 -13 Q0 -21 34 -13 L34 13 Q0 21 -34 13 Z" fill="#FFFBF2" opacity="0.4"/>
+      <line x1="-22" y1="-13" x2="-22" y2="13" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+      <line x1="-8" y1="-13" x2="-8" y2="13" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+      <line x1="6" y1="-13" x2="6" y2="13" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+      <line x1="20" y1="-13" x2="20" y2="13" stroke="#C9A227" stroke-width="1.5" opacity="0.5"/>
+      <ellipse cx="30" cy="0" rx="8" ry="13" fill="#D94F30"/>
+      <circle cx="27" cy="-4" r="2.4" fill="#EAD07E"/>
+      <circle cx="31" cy="3" r="2" fill="#F7EEDD"/>
+      <circle cx="28" cy="6" r="1.8" fill="#8C2233"/>
+    </g>
+    <!-- steam -->
+    <g stroke="#EAD07E" stroke-width="2" fill="none" opacity="0.55" stroke-linecap="round">
+      <path d="M78 78 q-6 -10 0 -18 q6 -8 0 -16"/>
+      <path d="M122 78 q6 -10 0 -18 q-6 -8 0 -16"/>
+    </g>
+    <text font-family="Baloo 2, sans-serif" font-size="15.5" font-weight="700" fill="#F7EEDD" letter-spacing="3">
+      <textPath href="#topArc" startOffset="50%" text-anchor="middle">ROYAL ROLLS</textPath>
+    </text>
+    <text font-family="Mukta, sans-serif" font-size="11" font-weight="600" fill="#EAD07E" letter-spacing="1">
+      <textPath href="#botArc" startOffset="50%" text-anchor="middle">ताज गंज • आगरा</textPath>
+    </text>
+  </svg>
+</template>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="navbar">
+    <a href="#home" class="brand">
+      <span class="logo-slot"></span>
+      <span class="brand-text">
+        <span class="en">ROYAL ROLLS</span>
+        <span class="hi">रॉयल रोल्स · Taj Ganj</span>
+      </span>
+    </a>
+    <nav class="links">
+      <a href="#home">होम</a>
+      <a href="#story">कहानी</a>
+      <a href="#menu">मेन्यू</a>
+      <a href="#gallery">गैलरी</a>
+      <a href="#reviews">रिव्यूज़</a>
+      <a href="#location">लोकेशन</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/919837941068?text=Namaste%20Royal%20Rolls!%20Main%20order%20karna%20chahta%20hoon." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3zM12 21.4h-.1a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.2C2 6.2 6.4 1.8 12 1.8c2.7 0 5.2 1 7.1 3 1.9 1.9 3 4.4 3 7.1-.1 5.6-4.5 9.5-10.1 9.5zm5.5-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+      WhatsApp
+    </a>
+    <div class="burger" id="burgerBtn"><span></span><span></span><span></span></div>
+  </div>
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#home">होम</a>
+    <a href="#story">कहानी</a>
+    <a href="#menu">मेन्यू</a>
+    <a href="#gallery">गैलरी</a>
+    <a href="#reviews">रिव्यूज़</a>
+    <a href="#location">लोकेशन</a>
+    <a href="https://wa.me/919837941068" style="color:#25D366;">WhatsApp पर मैसेज करें →</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <svg class="float-roll" viewBox="0 0 220 160" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="110" cy="140" rx="70" ry="12" fill="rgba(0,0,0,0.35)"/>
+    <rect x="30" y="45" width="160" height="70" rx="35" fill="#F7EEDD"/>
+    <path d="M30 45 Q110 25 190 45 L190 115 Q110 135 30 115 Z" fill="#FFFBF2" opacity="0.45"/>
+    <line x1="62" y1="45" x2="62" y2="115" stroke="#C9A227" stroke-width="3" opacity="0.5"/>
+    <line x1="94" y1="45" x2="94" y2="115" stroke="#C9A227" stroke-width="3" opacity="0.5"/>
+    <line x1="126" y1="45" x2="126" y2="115" stroke="#C9A227" stroke-width="3" opacity="0.5"/>
+    <line x1="158" y1="45" x2="158" y2="115" stroke="#C9A227" stroke-width="3" opacity="0.5"/>
+    <ellipse cx="175" cy="80" rx="22" ry="35" fill="#D94F30"/>
+    <circle cx="165" cy="65" r="6" fill="#EAD07E"/>
+    <circle cx="182" cy="90" r="5" fill="#F7EEDD"/>
+    <circle cx="170" cy="95" r="4.5" fill="#8C2233"/>
+    <circle cx="185" cy="68" r="4" fill="#4a7c33"/>
+    <g stroke="#EAD07E" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round">
+      <path d="M75 30 q-10 -16 0 -30 q10 -14 0 -28"/>
+      <path d="M105 30 q10 -16 0 -30 q-10 -14 0 -28"/>
+    </g>
+  </svg>
+  <div class="wrap">
+    <div class="eyebrow">Taj Ganj · Agra ki Galiyon Se</div>
+    <h1>ROYAL ROLLS<span class="hi">रॉयल रोल्स</span></h1>
+    <p class="tag">Garma-garam kathi rolls, cheese-burst pizza, burgers aur shakes — thele ki raunak, dhaba jaisa zaika. Jo bhi khaao, ROYAL banaake khaao.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" href="https://wa.me/919837941068?text=Namaste%20Royal%20Rolls!%20Main%20order%20karna%20chahta%20hoon." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3zM12 21.4h-.1a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.2C2 6.2 6.4 1.8 12 1.8c2.7 0 5.2 1 7.1 3 1.9 1.9 3 4.4 3 7.1-.1 5.6-4.5 9.5-10.1 9.5zm5.5-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+        WhatsApp पर ऑर्डर करें
+      </a>
+      <a class="btn btn-outline" href="#menu">
+        मेन्यू देखें
+      </a>
+    </div>
+    <div class="rating-chip">
+      <span class="stars">★★★★☆</span>
+      <span class="small">4.5 · 171 Google reviews</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="ticker">
+  <div class="ticker-track" id="tickerTrack"></div>
+</div>
+
+<!-- ================= STORY ================= -->
+<section class="story" id="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div>
+        <div class="kicker">हमारी कहानी</div>
+        <h2 class="sec-title">Sadak Ki Raunak<span class="hi">Dhaba Jaisa Apnapan</span></h2>
+        <p>Taj Ganj ki galiyon mein laal-safed chhatri ke neeche khada humara thela sirf khaane ki jagah nahi — ek chhoti si mehfil hai. LED battiyon ki roshni mein, garma-garam tawe se seedha plate tak, yahan har roll aur har shake pyaar se banaya jaata hai.</p>
+        <p>Andar aaiye toh deewaron par rangeen graffiti aur apna wahi jaana-pehchana "I ❤ Agra" corner milega — jahan local families aur tourists ek saath baith kar khaate hain, hansi-mazaak karte hain, aur ghar jaisa feel karte hain.</p>
+        <div class="stat-row">
+          <div class="stat"><b>4.5★</b><span>171 GOOGLE REVIEWS</span></div>
+          <div class="stat"><b>₹1–200</b><span>PER PERSON</span></div>
+          <div class="stat"><b>10:30 PM</b><span>DAILY TAK KHULA</span></div>
+        </div>
+      </div>
+      <div class="story-photo">
+        <img src="images/wall.webp" alt="Royal Rolls ka rangeen interior — I Love Agra wall art">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MENU ================= -->
+<section class="menu-sec" id="menu">
+  <div class="wrap">
+    <div class="kicker">पूरा मेन्यू</div>
+    <h2 class="sec-title">Kya Khaayein Aaj?<span class="hi">हर मूड के लिए कुछ ना कुछ</span></h2>
+    <p>Menu board se seedha uठाया gaya — sab kuch fresh, sab kuch garam. Rate list समय-समय पर बदल सकती है, latest ke liye WhatsApp karein.</p>
+
+    <div class="tabs" id="tabsRow"></div>
+    <div id="menuPanels"></div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="kicker">एक झलक</div>
+    <h2 class="sec-title">Andar Se Bahar Tak<span class="hi">Thele Se Table Tak</span></h2>
+    <div class="gal-grid">
+      <div class="gal-item gal-tall">
+        <img src="images/cart.webp" alt="Royal Rolls ka thela raat mein, LED lights ke saath">
+        <div class="cap">हमारा मशहूर thela — Taj Ganj</div>
+      </div>
+      <div class="gal-right">
+        <div class="gal-item" style="height:100%;">
+          <img src="images/wall.webp" alt="I Love Agra deewar, Royal Rolls ke andar" style="height:100%;">
+          <div class="cap">"I ❤ Agra" corner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= REVIEWS ================= -->
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="kicker">ग्राहकों की राय</div>
+    <h2 class="sec-title">Log Kya Kehte Hain<span class="hi">4.5★ · 171 Reviews</span></h2>
+    <div class="rev-grid">
+      <div class="rev-card">
+        <span class="quote-mark">"</span>
+        <div class="stars">★★★★★</div>
+        <p>Ek reviewer ne bataya ki sirf rolls hi nahi, balki unka Double Royal Burger aur Tandoori Paneer Pizza bhi kamaal ka hai — khaana fresh aur garam serve hota hai, portions bhi santoshjanak.</p>
+        <div class="rev-who">
+          <div class="avatar">KD</div>
+          <div><b>Keshav Dev</b><span>Local Guide · Google Review</span></div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <span class="quote-mark">"</span>
+        <div class="stars">★★★★★</div>
+        <p>Ek customer ne apna experience "amazing" bataya aur khaas taur par paneer dosa ki taarif ki — kaha ki taste bilkul lajawaab tha.</p>
+        <div class="rev-who">
+          <div class="avatar">VS</div>
+          <div><b>Vishal Srivastava</b><span>Local Guide · Google Review</span></div>
+        </div>
+      </div>
+      <div class="rev-card">
+        <span class="quote-mark">"</span>
+        <div class="stars">★★★★☆</div>
+        <p>Overall reviews mein staff ke sabhya vyavhaar aur swadisht khaane ki baar-baar taarif hoti hai — kai customers bataate hain ki wo har baar Agra aane par yahin aate hain.</p>
+        <div class="rev-who">
+          <div class="avatar">RR</div>
+          <div><b>Google Reviewers</b><span>171 Reviews · 4.5 Average</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LOCATION ================= -->
+<section class="location" id="location">
+  <div class="wrap">
+    <div class="loc-grid">
+      <div class="loc-info">
+        <div class="kicker" style="color:var(--gold-light);">हमें ढूंढें</div>
+        <h2 class="sec-title">Hume Milne Aaiye<span class="hi" style="color:var(--gold-light);">Taj Ganj, Agra</span></h2>
+        <div class="loc-list">
+          <div class="loc-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 13-9 13s-9-7-9-13a9 9 0 0 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><b>पता</b><span>Agra Shamshabad Raja Kherah Marg, Madhuvan Nagar, Indrapuram, Tajganj, Rajpur, Agra, Uttar Pradesh 282001</span></div>
+          </div>
+          <div class="loc-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.4 2.1L8 9.9a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.8 2Z"/></svg></div>
+            <div><b>कॉल / WhatsApp</b><span>098379 41068</span></div>
+          </div>
+          <div class="loc-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+            <div><b>समय</b><span>रोज़ाना खुला · रात 10:30 बजे तक (timing kabhi-kabhi badal sakti hai)</span></div>
+          </div>
+          <div class="loc-row">
+            <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6-9 6-9-6Z"/><path d="M3 9v6l9 6 9-6V9"/></svg></div>
+            <div><b>सर्विस</b><span>Dine-in · Takeaway · Swiggy पर भी उपलब्ध</span></div>
+          </div>
+        </div>
+        <div class="loc-ctas">
+          <a class="btn btn-primary" href="https://wa.me/919837941068?text=Namaste%20Royal%20Rolls!%20Main%20order%20karna%20chahta%20hoon." target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3zM12 21.4h-.1a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.2C2 6.2 6.4 1.8 12 1.8c2.7 0 5.2 1 7.1 3 1.9 1.9 3 4.4 3 7.1-.1 5.6-4.5 9.5-10.1 9.5zm5.5-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+            WhatsApp Karein
+          </a>
+          <a class="btn btn-outline" href="tel:+919837941068">Call: 098379 41068</a>
+        </div>
+      </div>
+      <div class="map-frame">
+        <iframe src="https://www.google.com/maps?q=Royal+Rolls+Agra+Shamshabad+Raja+Kherah+Marg+Tajganj+Agra+282001&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Royal Rolls location map"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div class="foot-brand">
+        <span class="logo-slot"></span>
+        <b>ROYAL ROLLS</b>
+      </div>
+      <div class="foot-links">
+        <a href="#home">होम</a>
+        <a href="#menu">मेन्यू</a>
+        <a href="#reviews">रिव्यूज़</a>
+        <a href="#location">लोकेशन</a>
+        <a href="https://wa.me/919837941068" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr"></span> Royal Rolls, Taj Ganj, Agra. सारे अधिकार सुरक्षित।</span>
+      <span>Made with ❤ for Agra's rolls-lovers</span>
+    </div>
+  </div>
+</footer>
+
+<a class="float-wa" href="https://wa.me/919837941068?text=Namaste%20Royal%20Rolls!%20Main%20order%20karna%20chahta%20hoon." target="_blank" rel="noopener" aria-label="WhatsApp par order karein">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3.5A11.8 11.8 0 0 0 12 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.4-1.7a11.9 11.9 0 0 0 5.6 1.4h.1c6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.1-3.5-8.3zM12 21.4h-.1a9.9 9.9 0 0 1-5-1.4l-.4-.2-3.8 1 1-3.7-.2-.4a9.8 9.8 0 0 1-1.5-5.2C2 6.2 6.4 1.8 12 1.8c2.7 0 5.2 1 7.1 3 1.9 1.9 3 4.4 3 7.1-.1 5.6-4.5 9.5-10.1 9.5zm5.5-7.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.6-2.1-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.4.1-.2 0-.4 0-.5-.1-.1-.7-1.7-1-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1.1 2.8 1.2 3c.1.2 2.1 3.3 5.2 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.2-.3-.2-.6-.4z"/></svg>
+</a>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ---- inject logo everywhere ---- */
+const tpl = document.getElementById('logo-tpl');
+document.querySelectorAll('.logo-slot').forEach(slot=>{
+  slot.appendChild(tpl.content.cloneNode(true));
+});
+
+/* ---- mobile menu ---- */
+const burger = document.getElementById('burgerBtn');
+const panel = document.getElementById('mobilePanel');
+burger.addEventListener('click', ()=>{
+  const open = panel.style.display === 'flex';
+  panel.style.display = open ? 'none' : 'flex';
+});
+panel.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=> panel.style.display='none'));
+
+/* ---- ticker content ---- */
+const tickerItems = [
+  "TANDOORI VADA PAV", "KIT KAT SHAKE", "CHILLI PANEER 12PCS", "ROYAL CHEESE BURST PIZZA",
+  "PANEER DOSA", "DOUBLE ROYAL BURGER", "PERI PERI FRIES", "MANGO SHAKE", "PAV BHAJI", "ROYAL SANDWICH"
+];
+const track = document.getElementById('tickerTrack');
+const full = [...tickerItems, ...tickerItems];
+track.innerHTML = full.map(t=>`<span>${t}</span>`).join('');
+
+/* ---- MENU DATA ---- */
+const MENU = {
+  "rolls-burgers": {
+    label: "🌯 Rolls & Burgers",
+    signature: "Royal Rolls ki asli jaan yahi hai — Chilli Paneer Roll aur Kathi Rolls counter par milte hain, roz ki special ke saath. Aaj ka roll menu jaanne ke liye seedha WhatsApp par poochein!",
+    items: [
+      {name:"Aloo Tikki Burger", price:"₹45"},
+      {name:"Double Royal Burger", price:"₹110"},
+      {name:"Royal Egg Burger", price:"₹110"},
+      {name:"Tandoori Paneer Pizza", price:"Ask", note:"reviewers ka favourite"},
+      {name:"Royal Cheese Burst Pizza", price:"Ask", note:"reviewers ka favourite"},
+    ]
+  },
+  "south-indian": {
+    label:"🥞 South Indian",
+    items:[
+      {name:"Plain Dosa", price:"₹80"},
+      {name:"Masala Dosa", price:"₹90"},
+      {name:"Paneer Dosa", price:"₹120"},
+      {name:"Makkhan Paneer Dosa", price:"₹140"},
+    ]
+  },
+  "chinese": {
+    label:"🥡 Chinese",
+    items:[
+      {name:"Veg Noodles", price:"₹40 / ₹80"},
+      {name:"Egg Noodle", price:"₹60 / ₹110"},
+      {name:"Paneer Noodle", price:"₹75 / ₹140"},
+      {name:"Chap Noodle", price:"₹70 / ₹130"},
+      {name:"Royal Veg Noodle", price:"₹80 / ₹150"},
+      {name:"Veg Fried Rice", price:"₹70 / ₹120"},
+      {name:"Egg Fried Rice", price:"₹70 / ₹130"},
+      {name:"Paneer Fried Rice", price:"₹85 / ₹150"},
+      {name:"Chilli Potato", price:"₹100 / ₹190"},
+      {name:"Honey Chilli Potato", price:"₹110 / ₹200"},
+      {name:"Chilly Paneer (12pcs)", price:"₹180"},
+      {name:"", price:"", note:"H / F = Half / Full"},
+    ]
+  },
+  "sandwich-fries": {
+    label:"🥪 Sandwich & Fries",
+    items:[
+      {name:"Veg Sandwich", price:"₹90"},
+      {name:"Paneer Sandwich", price:"₹120"},
+      {name:"Cheese Sandwich", price:"₹130"},
+      {name:"Royal Sandwich", price:"₹140"},
+      {name:"Cheese Corn Sandwich", price:"₹105"},
+      {name:"Egg Sandwich", price:"₹105"},
+      {name:"French Fries", price:"₹75"},
+      {name:"V Crispers", price:"₹80", badge:"NEW"},
+      {name:"Peri Peri French Fries", price:"₹90"},
+      {name:"Cheese French Fries", price:"₹100"},
+    ]
+  },
+  "vada-pav": {
+    label:"🍔 Vada Pav",
+    items:[
+      {name:"Classic Vada Pav", price:"₹25"},
+      {name:"Royal Vada Pav", price:"₹40"},
+      {name:"Tandoori Vada Pav", price:"₹50"},
+      {name:"Makhni Vada Pav", price:"₹60"},
+      {name:"Paneer Vada Pav", price:"₹65"},
+      {name:"Pav Bhaji (Amul Butter, 3 Pav)", price:"₹85"},
+      {name:"Extra Pav", price:"₹15"},
+    ]
+  },
+  "pasta-soup": {
+    label:"🍝 Pasta & Soup",
+    items:[
+      {name:"Red Sauce Pasta", price:"₹130"},
+      {name:"White Sauce Pasta", price:"₹130"},
+      {name:"Paneer Soup", price:"₹100"},
+      {name:"Hot & Sour Soup", price:"₹100"},
+      {name:"Sweet Corn Soup", price:"₹90"},
+      {name:"Egg Soup", price:"₹90"},
+    ]
+  },
+  "shakes-icecream": {
+    label:"🥤 Shakes & Ice Cream",
+    items:[
+      {name:"Vanilla Shake", price:"₹90"},
+      {name:"Mango Shake", price:"₹100"},
+      {name:"Chocolate Shake", price:"₹110"},
+      {name:"Strawberry Shake", price:"₹110"},
+      {name:"Pine Apple Shake", price:"₹110"},
+      {name:"Butter Scotch Shake", price:"₹110"},
+      {name:"Black Current Shake", price:"₹110"},
+      {name:"Caramel Shake", price:"₹130", badge:"NEW"},
+      {name:"Oreo Shake", price:"₹130"},
+      {name:"Kit Kat Shake", price:"₹140", badge:"NEW"},
+      {name:"Cold Coffee", price:"₹100"},
+      {name:"Royal Special Icecream", price:"₹80"},
+      {name:"Vanilla / Choco / Strawberry Ice Cream", price:"₹30–35 / ₹50–60", note:"Single / Double"},
+    ]
+  },
+  "drinks": {
+    label:"🧊 Cold Drinks",
+    items:[
+      {name:"Water Bottle", price:"₹30"},
+      {name:"Soft Drink (Glass, 300ml)", price:"₹50"},
+      {name:"Mint Mojito", price:"₹60"},
+      {name:"Kala Khatta", price:"₹80"},
+      {name:"Ice Tea", price:"₹80"},
+      {name:"Deep Ocean", price:"₹80", badge:"NEW"},
+      {name:"Fresh Lemon Soda", price:"₹85"},
+      {name:"Cafe Mocha", price:"₹85", badge:"NEW"},
+      {name:"Blue Lagune", price:"₹90"},
+      {name:"Hot Coffee", price:"₹70"},
+    ]
+  }
+};
+
+const tabsRow = document.getElementById('tabsRow');
+const panels = document.getElementById('menuPanels');
+const keys = Object.keys(MENU);
+
+keys.forEach((key,i)=>{
+  const btn = document.createElement('button');
+  btn.className = 'tab-btn' + (i===0?' active':'');
+  btn.textContent = MENU[key].label;
+  btn.dataset.key = key;
+  btn.addEventListener('click', ()=> showTab(key));
+  tabsRow.appendChild(btn);
+
+  const panel = document.createElement('div');
+  panel.className = 'menu-panel' + (i===0?' active':'');
+  panel.id = 'panel-'+key;
+
+  let html = '';
+  if(MENU[key].signature){
+    html += `<div class="signature-card"><div><h3>👑 Signature Menu</h3><p>${MENU[key].signature}</p></div>
+      <a class="btn btn-primary" style="padding:11px 20px;font-size:0.88rem;" href="https://wa.me/919837941068?text=Aaj%20ka%20roll%20menu%20bataiye" target="_blank" rel="noopener">Aaj Ka Roll Menu Poochein</a></div>`;
+  }
+  MENU[key].items.forEach(it=>{
+    if(!it.name) { html += `<div class="item-card" style="display:flex;align-items:center;justify-content:center;opacity:0.6;font-family:'IBM Plex Mono';font-size:0.8rem;">${it.note}</div>`; return; }
+    html += `<div class="item-card">
+      <div class="item-top">
+        <span class="item-name">${it.name}${it.badge?`<span class="badge-new">${it.badge}</span>`:''}</span>
+        <span class="item-price">${it.price}</span>
+      </div>
+      ${it.note?`<div class="item-note">${it.note}</div>`:''}
+    </div>`;
+  });
+  panel.innerHTML = html;
+  panels.appendChild(panel);
+});
+
+function showTab(key){
+  document.querySelectorAll('.tab-btn').forEach(b=> b.classList.toggle('active', b.dataset.key===key));
+  document.querySelectorAll('.menu-panel').forEach(p=> p.classList.toggle('active', p.id === 'panel-'+key));
+}
+
+/* ---- 3D tilt on menu cards ---- */
+function attachTilt(){
+  document.querySelectorAll('.item-card').forEach(card=>{
+    card.addEventListener('mousemove', e=>{
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left)/r.width - 0.5;
+      const y = (e.clientY - r.top)/r.height - 0.5;
+      card.style.transform = `rotateY(${x*10}deg) rotateX(${-y*10}deg) translateZ(6px)`;
+    });
+    card.addEventListener('mouseleave', ()=>{
+      card.style.transform = 'rotateY(0) rotateX(0) translateZ(0)';
+    });
+  });
+}
+new MutationObserver(attachTilt).observe(panels, {childList:true, subtree:true});
+attachTilt();
+
+/* ---- hero parallax on mouse ---- */
+const floatRoll = document.querySelector('.float-roll');
+if(floatRoll){
+  document.querySelector('.hero').addEventListener('mousemove', e=>{
+    const x = (e.clientX / window.innerWidth - 0.5) * 24;
+    const y = (e.clientY / window.innerHeight - 0.5) * 24;
+    floatRoll.style.transform = `translate(${x}px, ${y}px)`;
+  });
+}
+
+/* ---- sticky header shrink shadow on scroll ---- */
+window.addEventListener('scroll', ()=>{
+  document.querySelector('header').style.boxShadow = window.scrollY>10
+    ? '0 8px 22px rgba(0,0,0,0.35)' : '0 4px 18px rgba(0,0,0,0.25)';
+});
+</script>
+</body>
+</html>
